@@ -40,11 +40,24 @@
         <script src="data/DivisinMunicipal_4.js"></script>
         <script src="data/Vialidad_5.js"></script>
         <script src="data/CapitalesdeEstado_6.js"></script>
-        <script src="data/CentrosEducativosporEnteRector_7.js"></script>
+        <script src="data/CEVivienda_7.js"></script>
+        <script src="data/CETransporte_8.js"></script>
+        <script src="data/CETelecomunicaciones_9.js"></script>
+        <script src="data/CESeguridadyDefensa_10.js"></script>
+        <script src="data/CESectorPetrolero_11.js"></script>
+        <script src="data/CESectorMinero_12.js"></script>
+        <script src="data/CESectorHdrico_13.js"></script>
+        <script src="data/CEObrasPblicas_14.js"></script>
+        <script src="data/CESectorElctrico_15.js"></script>
+        <script src="data/CEInstitucionalPolticas_16.js"></script>
+        <script src="data/CEEducacinyFormacin_17.js"></script>
+        <script src="data/CentrosEducativosTiers3FormacinTcnicaEspecializada_18.js"></script>
+        <script src="data/CentrosEducativosTiers2FormacinMediayOcupacional_19.js"></script>
+        <script src="data/CentrosEducativosTiers1FormacinBsica_20.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[5.9290272345750825,-71.55606231762447],[13.342286545951707,-62.06416731762526]]);
+        }).fitBounds([[7.541987123940866,-71.87905710728256],[14.95524643530613,-62.387162107297904]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -534,7 +547,1023 @@
         ]});
         bounds_group.addLayer(layer_CapitalesdeEstado_6);
         map.addLayer(layer_CapitalesdeEstado_6);
-        function pop_CentrosEducativosporEnteRector_7(feature, layer) {
+        function pop_CEVivienda_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="ID_Centro" colspan="2"><strong>ID del Centro</strong><br />' + (feature.properties['ID_Centro'] !== null ? autolinker.link(String(feature.properties['ID_Centro']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nombre_Cen" colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre_Cen'] !== null ? autolinker.link(String(feature.properties['Nombre_Cen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Municipio" colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? autolinker.link(String(feature.properties['Municipio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Parroquia" colspan="2"><strong>Parroquia</strong><br />' + (feature.properties['Parroquia'] !== null ? autolinker.link(String(feature.properties['Parroquia']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Dirección" colspan="2"><strong>Dirección</strong><br />' + (feature.properties['Dirección'] !== null ? autolinker.link(String(feature.properties['Dirección']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Area_Tecni" colspan="2"><strong>Área Técnica</strong><br />' + (feature.properties['Area_Tecni'] !== null ? autolinker.link(String(feature.properties['Area_Tecni']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tipo_Insti" colspan="2"><strong>Tipo Institución</strong><br />' + (feature.properties['Tipo_Insti'] !== null ? autolinker.link(String(feature.properties['Tipo_Insti']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Organismo_" colspan="2"><strong>Organismo</strong><br />' + (feature.properties['Organismo_'] !== null ? autolinker.link(String(feature.properties['Organismo_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Ente_Recto" colspan="2"><strong>Ente Rector</strong><br />' + (feature.properties['Ente_Recto'] !== null ? autolinker.link(String(feature.properties['Ente_Recto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tier_Propu" colspan="2"><strong>Tier Propuesta</strong><br />' + (feature.properties['Tier_Propu'] !== null ? autolinker.link(String(feature.properties['Tier_Propu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Perfil_Adi" colspan="2"><strong>Perfil de Adiestramiento</strong><br />' + (feature.properties['Perfil_Adi'] !== null ? autolinker.link(String(feature.properties['Perfil_Adi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estatus_Op" colspan="2"><strong>Estatus de Operaciones</strong><br />' + (feature.properties['Estatus_Op'] !== null ? autolinker.link(String(feature.properties['Estatus_Op']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacidad" colspan="2"><strong>Capadidad de Matrícula</strong><br />' + (feature.properties['Capacidad'] !== null ? autolinker.link(String(feature.properties['Capacidad']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacida_1" colspan="2"><strong>Capacidad de Egresados</strong><br />' + (feature.properties['Capacida_1'] !== null ? autolinker.link(String(feature.properties['Capacida_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CEVivienda_7_0() {
+            return {
+                pane: 'pane_CEVivienda_7',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(247,247,247,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(149,149,149,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CEVivienda_7');
+        map.getPane('pane_CEVivienda_7').style.zIndex = 407;
+        map.getPane('pane_CEVivienda_7').style['mix-blend-mode'] = 'normal';
+        var layer_CEVivienda_7 = new L.geoJson(json_CEVivienda_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CEVivienda_7',
+            layerName: 'layer_CEVivienda_7',
+            pane: 'pane_CEVivienda_7',
+            onEachFeature: pop_CEVivienda_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CEVivienda_7_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CEVivienda_7);
+        map.addLayer(layer_CEVivienda_7);
+        function pop_CETransporte_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="ID_Centro" colspan="2"><strong>ID del Centro</strong><br />' + (feature.properties['ID_Centro'] !== null ? autolinker.link(String(feature.properties['ID_Centro']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nombre_Cen" colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre_Cen'] !== null ? autolinker.link(String(feature.properties['Nombre_Cen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Municipio" colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? autolinker.link(String(feature.properties['Municipio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Parroquia" colspan="2"><strong>Parroquia</strong><br />' + (feature.properties['Parroquia'] !== null ? autolinker.link(String(feature.properties['Parroquia']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Dirección" colspan="2"><strong>Dirección</strong><br />' + (feature.properties['Dirección'] !== null ? autolinker.link(String(feature.properties['Dirección']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Area_Tecni" colspan="2"><strong>Área Técnica</strong><br />' + (feature.properties['Area_Tecni'] !== null ? autolinker.link(String(feature.properties['Area_Tecni']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tipo_Insti" colspan="2"><strong>Tipo Institución</strong><br />' + (feature.properties['Tipo_Insti'] !== null ? autolinker.link(String(feature.properties['Tipo_Insti']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Organismo_" colspan="2"><strong>Organismo</strong><br />' + (feature.properties['Organismo_'] !== null ? autolinker.link(String(feature.properties['Organismo_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Ente_Recto" colspan="2"><strong>Ente Rector</strong><br />' + (feature.properties['Ente_Recto'] !== null ? autolinker.link(String(feature.properties['Ente_Recto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tier_Propu" colspan="2"><strong>Tier Propuesta</strong><br />' + (feature.properties['Tier_Propu'] !== null ? autolinker.link(String(feature.properties['Tier_Propu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Perfil_Adi" colspan="2"><strong>Perfil de Adiestramiento</strong><br />' + (feature.properties['Perfil_Adi'] !== null ? autolinker.link(String(feature.properties['Perfil_Adi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estatus_Op" colspan="2"><strong>Estatus de Operaciones</strong><br />' + (feature.properties['Estatus_Op'] !== null ? autolinker.link(String(feature.properties['Estatus_Op']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacidad" colspan="2"><strong>Capacidad de Matrícula</strong><br />' + (feature.properties['Capacidad'] !== null ? autolinker.link(String(feature.properties['Capacidad']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacida_1" colspan="2"><strong>Capacidad de Egresados</strong><br />' + (feature.properties['Capacida_1'] !== null ? autolinker.link(String(feature.properties['Capacida_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CETransporte_8_0() {
+            return {
+                pane: 'pane_CETransporte_8',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(83,83,83,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(203,203,203,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CETransporte_8');
+        map.getPane('pane_CETransporte_8').style.zIndex = 408;
+        map.getPane('pane_CETransporte_8').style['mix-blend-mode'] = 'normal';
+        var layer_CETransporte_8 = new L.geoJson(json_CETransporte_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CETransporte_8',
+            layerName: 'layer_CETransporte_8',
+            pane: 'pane_CETransporte_8',
+            onEachFeature: pop_CETransporte_8,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CETransporte_8_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CETransporte_8);
+        map.addLayer(layer_CETransporte_8);
+        function pop_CETelecomunicaciones_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="ID_Centro" colspan="2"><strong>ID del Centro</strong><br />' + (feature.properties['ID_Centro'] !== null ? autolinker.link(String(feature.properties['ID_Centro']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nombre_Cen" colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre_Cen'] !== null ? autolinker.link(String(feature.properties['Nombre_Cen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Municipio" colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? autolinker.link(String(feature.properties['Municipio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Parroquia" colspan="2"><strong>Parroquia</strong><br />' + (feature.properties['Parroquia'] !== null ? autolinker.link(String(feature.properties['Parroquia']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Dirección" colspan="2"><strong>Dirección</strong><br />' + (feature.properties['Dirección'] !== null ? autolinker.link(String(feature.properties['Dirección']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Area_Tecni" colspan="2"><strong>Área Técnica</strong><br />' + (feature.properties['Area_Tecni'] !== null ? autolinker.link(String(feature.properties['Area_Tecni']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tipo_Insti" colspan="2"><strong>Tipo Institución</strong><br />' + (feature.properties['Tipo_Insti'] !== null ? autolinker.link(String(feature.properties['Tipo_Insti']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Organismo_" colspan="2"><strong>Organismo</strong><br />' + (feature.properties['Organismo_'] !== null ? autolinker.link(String(feature.properties['Organismo_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Ente_Recto" colspan="2"><strong>Ente Rector</strong><br />' + (feature.properties['Ente_Recto'] !== null ? autolinker.link(String(feature.properties['Ente_Recto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tier_Propu" colspan="2"><strong>Tier Propuesta</strong><br />' + (feature.properties['Tier_Propu'] !== null ? autolinker.link(String(feature.properties['Tier_Propu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Perfil_Adi" colspan="2"><strong>Perfil de Adiestramiento</strong><br />' + (feature.properties['Perfil_Adi'] !== null ? autolinker.link(String(feature.properties['Perfil_Adi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estatus_Op" colspan="2"><strong>Estatus de Operaciones</strong><br />' + (feature.properties['Estatus_Op'] !== null ? autolinker.link(String(feature.properties['Estatus_Op']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacidad" colspan="2"><strong>Capacidad de Matrícula</strong><br />' + (feature.properties['Capacidad'] !== null ? autolinker.link(String(feature.properties['Capacidad']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacida_1" colspan="2"><strong>Capacidad de Egresados</strong><br />' + (feature.properties['Capacida_1'] !== null ? autolinker.link(String(feature.properties['Capacida_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CETelecomunicaciones_9_0() {
+            return {
+                pane: 'pane_CETelecomunicaciones_9',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(179,93,142,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(242,125,191,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CETelecomunicaciones_9');
+        map.getPane('pane_CETelecomunicaciones_9').style.zIndex = 409;
+        map.getPane('pane_CETelecomunicaciones_9').style['mix-blend-mode'] = 'normal';
+        var layer_CETelecomunicaciones_9 = new L.geoJson(json_CETelecomunicaciones_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CETelecomunicaciones_9',
+            layerName: 'layer_CETelecomunicaciones_9',
+            pane: 'pane_CETelecomunicaciones_9',
+            onEachFeature: pop_CETelecomunicaciones_9,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CETelecomunicaciones_9_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CETelecomunicaciones_9);
+        map.addLayer(layer_CETelecomunicaciones_9);
+        function pop_CESeguridadyDefensa_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="ID_Centro" colspan="2"><strong>ID del Centro</strong><br />' + (feature.properties['ID_Centro'] !== null ? autolinker.link(String(feature.properties['ID_Centro']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nombre_Cen" colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre_Cen'] !== null ? autolinker.link(String(feature.properties['Nombre_Cen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Municipio" colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? autolinker.link(String(feature.properties['Municipio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Parroquia</strong><br />' + (feature.properties['Parroquia'] !== null ? autolinker.link(String(feature.properties['Parroquia']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Dirección" colspan="2"><strong>Dirección</strong><br />' + (feature.properties['Dirección'] !== null ? autolinker.link(String(feature.properties['Dirección']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Area_Tecni" colspan="2"><strong>Área Técnica</strong><br />' + (feature.properties['Area_Tecni'] !== null ? autolinker.link(String(feature.properties['Area_Tecni']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tipo_Insti" colspan="2"><strong>Tipo Institución</strong><br />' + (feature.properties['Tipo_Insti'] !== null ? autolinker.link(String(feature.properties['Tipo_Insti']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Organismo_" colspan="2"><strong>Organismo</strong><br />' + (feature.properties['Organismo_'] !== null ? autolinker.link(String(feature.properties['Organismo_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Ente_Recto" colspan="2"><strong>Ente Rector</strong><br />' + (feature.properties['Ente_Recto'] !== null ? autolinker.link(String(feature.properties['Ente_Recto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tier_Propu" colspan="2"><strong>Tier Propuesta</strong><br />' + (feature.properties['Tier_Propu'] !== null ? autolinker.link(String(feature.properties['Tier_Propu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Perfil_Adi" colspan="2"><strong>Perfil de Adiestramiento</strong><br />' + (feature.properties['Perfil_Adi'] !== null ? autolinker.link(String(feature.properties['Perfil_Adi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estatus_Op" colspan="2"><strong>Estatus de Operaciones</strong><br />' + (feature.properties['Estatus_Op'] !== null ? autolinker.link(String(feature.properties['Estatus_Op']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacidad" colspan="2"><strong>Capacidad de Matrícula</strong><br />' + (feature.properties['Capacidad'] !== null ? autolinker.link(String(feature.properties['Capacidad']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacida_1" colspan="2"><strong>Capacidad de Egresados</strong><br />' + (feature.properties['Capacida_1'] !== null ? autolinker.link(String(feature.properties['Capacida_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CESeguridadyDefensa_10_0() {
+            return {
+                pane: 'pane_CESeguridadyDefensa_10',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(247,225,55,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(250,255,57,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CESeguridadyDefensa_10');
+        map.getPane('pane_CESeguridadyDefensa_10').style.zIndex = 410;
+        map.getPane('pane_CESeguridadyDefensa_10').style['mix-blend-mode'] = 'normal';
+        var layer_CESeguridadyDefensa_10 = new L.geoJson(json_CESeguridadyDefensa_10, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CESeguridadyDefensa_10',
+            layerName: 'layer_CESeguridadyDefensa_10',
+            pane: 'pane_CESeguridadyDefensa_10',
+            onEachFeature: pop_CESeguridadyDefensa_10,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CESeguridadyDefensa_10_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CESeguridadyDefensa_10);
+        map.addLayer(layer_CESeguridadyDefensa_10);
+        function pop_CESectorPetrolero_11(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="ID_Centro" colspan="2"><strong>ID del Centro</strong><br />' + (feature.properties['ID_Centro'] !== null ? autolinker.link(String(feature.properties['ID_Centro']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nombre_Cen" colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre_Cen'] !== null ? autolinker.link(String(feature.properties['Nombre_Cen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Municipio" colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? autolinker.link(String(feature.properties['Municipio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Parroquia" colspan="2"><strong>Parroquia</strong><br />' + (feature.properties['Parroquia'] !== null ? autolinker.link(String(feature.properties['Parroquia']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Dirección" colspan="2"><strong>Dirección</strong><br />' + (feature.properties['Dirección'] !== null ? autolinker.link(String(feature.properties['Dirección']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Area_Tecni" colspan="2"><strong>Área Técnica</strong><br />' + (feature.properties['Area_Tecni'] !== null ? autolinker.link(String(feature.properties['Area_Tecni']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tipo_Insti" colspan="2"><strong>Tipo Institución</strong><br />' + (feature.properties['Tipo_Insti'] !== null ? autolinker.link(String(feature.properties['Tipo_Insti']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Organismo_" colspan="2"><strong>Organismo</strong><br />' + (feature.properties['Organismo_'] !== null ? autolinker.link(String(feature.properties['Organismo_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Ente_Recto" colspan="2"><strong>Ente Rector</strong><br />' + (feature.properties['Ente_Recto'] !== null ? autolinker.link(String(feature.properties['Ente_Recto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tier_Propu" colspan="2"><strong>Tier Propuesta</strong><br />' + (feature.properties['Tier_Propu'] !== null ? autolinker.link(String(feature.properties['Tier_Propu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Perfil_Adi" colspan="2"><strong>Perfil de Adiestramiento</strong><br />' + (feature.properties['Perfil_Adi'] !== null ? autolinker.link(String(feature.properties['Perfil_Adi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Latitud_RE" colspan="2"><strong>Latitud_RE</strong><br />' + (feature.properties['Latitud_RE'] !== null ? autolinker.link(String(feature.properties['Latitud_RE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Longitud_R" colspan="2"><strong>Longitud_R</strong><br />' + (feature.properties['Longitud_R'] !== null ? autolinker.link(String(feature.properties['Longitud_R']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estatus_Op" colspan="2"><strong>Estatus de Operaciones</strong><br />' + (feature.properties['Estatus_Op'] !== null ? autolinker.link(String(feature.properties['Estatus_Op']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacidad" colspan="2"><strong>Capacidad de Matrícula</strong><br />' + (feature.properties['Capacidad'] !== null ? autolinker.link(String(feature.properties['Capacidad']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacida_1" colspan="2"><strong>Capacidad de Egresados</strong><br />' + (feature.properties['Capacida_1'] !== null ? autolinker.link(String(feature.properties['Capacida_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CESectorPetrolero_11_0() {
+            return {
+                pane: 'pane_CESectorPetrolero_11',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CESectorPetrolero_11');
+        map.getPane('pane_CESectorPetrolero_11').style.zIndex = 411;
+        map.getPane('pane_CESectorPetrolero_11').style['mix-blend-mode'] = 'normal';
+        var layer_CESectorPetrolero_11 = new L.geoJson(json_CESectorPetrolero_11, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CESectorPetrolero_11',
+            layerName: 'layer_CESectorPetrolero_11',
+            pane: 'pane_CESectorPetrolero_11',
+            onEachFeature: pop_CESectorPetrolero_11,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CESectorPetrolero_11_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CESectorPetrolero_11);
+        map.addLayer(layer_CESectorPetrolero_11);
+        function pop_CESectorMinero_12(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="ID_Centro" colspan="2"><strong>ID del Centro</strong><br />' + (feature.properties['ID_Centro'] !== null ? autolinker.link(String(feature.properties['ID_Centro']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nombre_Cen" colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre_Cen'] !== null ? autolinker.link(String(feature.properties['Nombre_Cen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Municipio" colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? autolinker.link(String(feature.properties['Municipio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Parroquia" colspan="2"><strong>Parroquia</strong><br />' + (feature.properties['Parroquia'] !== null ? autolinker.link(String(feature.properties['Parroquia']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Dirección" colspan="2"><strong>Dirección</strong><br />' + (feature.properties['Dirección'] !== null ? autolinker.link(String(feature.properties['Dirección']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Area_Tecni" colspan="2"><strong>Área Técnica</strong><br />' + (feature.properties['Area_Tecni'] !== null ? autolinker.link(String(feature.properties['Area_Tecni']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tipo_Insti" colspan="2"><strong>Tipo Institución</strong><br />' + (feature.properties['Tipo_Insti'] !== null ? autolinker.link(String(feature.properties['Tipo_Insti']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Organismo</strong><br />' + (feature.properties['Organismo_'] !== null ? autolinker.link(String(feature.properties['Organismo_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Ente_Recto" colspan="2"><strong>Ente Rector</strong><br />' + (feature.properties['Ente_Recto'] !== null ? autolinker.link(String(feature.properties['Ente_Recto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tier_Propu" colspan="2"><strong>Tier Propuesta</strong><br />' + (feature.properties['Tier_Propu'] !== null ? autolinker.link(String(feature.properties['Tier_Propu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Perfil_Adi" colspan="2"><strong>Perfil de Adiestramiento</strong><br />' + (feature.properties['Perfil_Adi'] !== null ? autolinker.link(String(feature.properties['Perfil_Adi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Longitud_R</strong><br />' + (feature.properties['Longitud_R'] !== null ? autolinker.link(String(feature.properties['Longitud_R']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estatus_Op" colspan="2"><strong>Estatus de Operaciones</strong><br />' + (feature.properties['Estatus_Op'] !== null ? autolinker.link(String(feature.properties['Estatus_Op']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacidad" colspan="2"><strong>Capacidad de Matrícula</strong><br />' + (feature.properties['Capacidad'] !== null ? autolinker.link(String(feature.properties['Capacidad']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacida_1" colspan="2"><strong>Capacidad de Egresados</strong><br />' + (feature.properties['Capacida_1'] !== null ? autolinker.link(String(feature.properties['Capacida_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CESectorMinero_12_0() {
+            return {
+                pane: 'pane_CESectorMinero_12',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(117,58,128,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(149,74,162,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CESectorMinero_12');
+        map.getPane('pane_CESectorMinero_12').style.zIndex = 412;
+        map.getPane('pane_CESectorMinero_12').style['mix-blend-mode'] = 'normal';
+        var layer_CESectorMinero_12 = new L.geoJson(json_CESectorMinero_12, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CESectorMinero_12',
+            layerName: 'layer_CESectorMinero_12',
+            pane: 'pane_CESectorMinero_12',
+            onEachFeature: pop_CESectorMinero_12,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CESectorMinero_12_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CESectorMinero_12);
+        map.addLayer(layer_CESectorMinero_12);
+        function pop_CESectorHdrico_13(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="ID_Centro" colspan="2"><strong>ID del Centro</strong><br />' + (feature.properties['ID_Centro'] !== null ? autolinker.link(String(feature.properties['ID_Centro']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nombre_Cen" colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre_Cen'] !== null ? autolinker.link(String(feature.properties['Nombre_Cen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Municipio" colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? autolinker.link(String(feature.properties['Municipio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Parroquia" colspan="2"><strong>Parroquia</strong><br />' + (feature.properties['Parroquia'] !== null ? autolinker.link(String(feature.properties['Parroquia']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Dirección" colspan="2"><strong>Dirección</strong><br />' + (feature.properties['Dirección'] !== null ? autolinker.link(String(feature.properties['Dirección']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Area_Tecni" colspan="2"><strong>Área Técnica</strong><br />' + (feature.properties['Area_Tecni'] !== null ? autolinker.link(String(feature.properties['Area_Tecni']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tipo_Insti" colspan="2"><strong>Tipo Institución</strong><br />' + (feature.properties['Tipo_Insti'] !== null ? autolinker.link(String(feature.properties['Tipo_Insti']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Organismo_" colspan="2"><strong>Organismo</strong><br />' + (feature.properties['Organismo_'] !== null ? autolinker.link(String(feature.properties['Organismo_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Ente_Recto" colspan="2"><strong>Ente Rector</strong><br />' + (feature.properties['Ente_Recto'] !== null ? autolinker.link(String(feature.properties['Ente_Recto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tier_Propu" colspan="2"><strong>Tier Propuesta</strong><br />' + (feature.properties['Tier_Propu'] !== null ? autolinker.link(String(feature.properties['Tier_Propu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Perfil_Adi" colspan="2"><strong>Perfil de Adiestramiento</strong><br />' + (feature.properties['Perfil_Adi'] !== null ? autolinker.link(String(feature.properties['Perfil_Adi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estatus_Op" colspan="2"><strong>Estatus de Operaciones</strong><br />' + (feature.properties['Estatus_Op'] !== null ? autolinker.link(String(feature.properties['Estatus_Op']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacidad" colspan="2"><strong>Capacidad de Matrícula</strong><br />' + (feature.properties['Capacidad'] !== null ? autolinker.link(String(feature.properties['Capacidad']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacida_1" colspan="2"><strong>Capacidad de Egresados</strong><br />' + (feature.properties['Capacida_1'] !== null ? autolinker.link(String(feature.properties['Capacida_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="ENTE" colspan="2"><strong>ENTE</strong><br />' + (feature.properties['ENTE'] !== null ? autolinker.link(String(feature.properties['ENTE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CESectorHdrico_13_0() {
+            return {
+                pane: 'pane_CESectorHdrico_13',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(0,89,26,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(14,182,74,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CESectorHdrico_13');
+        map.getPane('pane_CESectorHdrico_13').style.zIndex = 413;
+        map.getPane('pane_CESectorHdrico_13').style['mix-blend-mode'] = 'normal';
+        var layer_CESectorHdrico_13 = new L.geoJson(json_CESectorHdrico_13, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CESectorHdrico_13',
+            layerName: 'layer_CESectorHdrico_13',
+            pane: 'pane_CESectorHdrico_13',
+            onEachFeature: pop_CESectorHdrico_13,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CESectorHdrico_13_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CESectorHdrico_13);
+        map.addLayer(layer_CESectorHdrico_13);
+        function pop_CEObrasPblicas_14(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="ID_Centro" colspan="2"><strong>ID del Centro</strong><br />' + (feature.properties['ID_Centro'] !== null ? autolinker.link(String(feature.properties['ID_Centro']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nombre_Cen" colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre_Cen'] !== null ? autolinker.link(String(feature.properties['Nombre_Cen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Municipio" colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? autolinker.link(String(feature.properties['Municipio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Parroquia" colspan="2"><strong>Parroquia</strong><br />' + (feature.properties['Parroquia'] !== null ? autolinker.link(String(feature.properties['Parroquia']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Dirección" colspan="2"><strong>Dirección</strong><br />' + (feature.properties['Dirección'] !== null ? autolinker.link(String(feature.properties['Dirección']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Area_Tecni" colspan="2"><strong>Área Técnica</strong><br />' + (feature.properties['Area_Tecni'] !== null ? autolinker.link(String(feature.properties['Area_Tecni']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tipo_Insti" colspan="2"><strong>Tipo de Institución</strong><br />' + (feature.properties['Tipo_Insti'] !== null ? autolinker.link(String(feature.properties['Tipo_Insti']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Organismo_" colspan="2"><strong>Organismo</strong><br />' + (feature.properties['Organismo_'] !== null ? autolinker.link(String(feature.properties['Organismo_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Ente_Recto" colspan="2"><strong>Ente Rector</strong><br />' + (feature.properties['Ente_Recto'] !== null ? autolinker.link(String(feature.properties['Ente_Recto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tier_Propu" colspan="2"><strong>Tier Propuesta</strong><br />' + (feature.properties['Tier_Propu'] !== null ? autolinker.link(String(feature.properties['Tier_Propu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Perfil_Adi" colspan="2"><strong>Perfil de Adiestramiento</strong><br />' + (feature.properties['Perfil_Adi'] !== null ? autolinker.link(String(feature.properties['Perfil_Adi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estatus_Op" colspan="2"><strong>Estatus de Operaciones</strong><br />' + (feature.properties['Estatus_Op'] !== null ? autolinker.link(String(feature.properties['Estatus_Op']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacidad" colspan="2"><strong>Capacidad de Matrícula</strong><br />' + (feature.properties['Capacidad'] !== null ? autolinker.link(String(feature.properties['Capacidad']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacida_1" colspan="2"><strong>Capacidad de Egresados</strong><br />' + (feature.properties['Capacida_1'] !== null ? autolinker.link(String(feature.properties['Capacida_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CEObrasPblicas_14_0() {
+            return {
+                pane: 'pane_CEObrasPblicas_14',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CEObrasPblicas_14');
+        map.getPane('pane_CEObrasPblicas_14').style.zIndex = 414;
+        map.getPane('pane_CEObrasPblicas_14').style['mix-blend-mode'] = 'normal';
+        var layer_CEObrasPblicas_14 = new L.geoJson(json_CEObrasPblicas_14, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CEObrasPblicas_14',
+            layerName: 'layer_CEObrasPblicas_14',
+            pane: 'pane_CEObrasPblicas_14',
+            onEachFeature: pop_CEObrasPblicas_14,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CEObrasPblicas_14_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CEObrasPblicas_14);
+        map.addLayer(layer_CEObrasPblicas_14);
+        function pop_CESectorElctrico_15(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="ID_Centro" colspan="2"><strong>ID del Centro</strong><br />' + (feature.properties['ID_Centro'] !== null ? autolinker.link(String(feature.properties['ID_Centro']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nombre_Cen" colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre_Cen'] !== null ? autolinker.link(String(feature.properties['Nombre_Cen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Municipio" colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? autolinker.link(String(feature.properties['Municipio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Parroquia" colspan="2"><strong>Parroquia</strong><br />' + (feature.properties['Parroquia'] !== null ? autolinker.link(String(feature.properties['Parroquia']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Dirección" colspan="2"><strong>Dirección</strong><br />' + (feature.properties['Dirección'] !== null ? autolinker.link(String(feature.properties['Dirección']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Area_Tecni" colspan="2"><strong>Área Técnica</strong><br />' + (feature.properties['Area_Tecni'] !== null ? autolinker.link(String(feature.properties['Area_Tecni']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tipo_Insti" colspan="2"><strong>Tipo de Institución</strong><br />' + (feature.properties['Tipo_Insti'] !== null ? autolinker.link(String(feature.properties['Tipo_Insti']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Organismo_" colspan="2"><strong>Organismo</strong><br />' + (feature.properties['Organismo_'] !== null ? autolinker.link(String(feature.properties['Organismo_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Ente_Recto" colspan="2"><strong>Ente Rector</strong><br />' + (feature.properties['Ente_Recto'] !== null ? autolinker.link(String(feature.properties['Ente_Recto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tier_Propu" colspan="2"><strong>Tier Propuesto</strong><br />' + (feature.properties['Tier_Propu'] !== null ? autolinker.link(String(feature.properties['Tier_Propu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Perfil_Adi" colspan="2"><strong>Perfil de Adiestramiento</strong><br />' + (feature.properties['Perfil_Adi'] !== null ? autolinker.link(String(feature.properties['Perfil_Adi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estatus_Op" colspan="2"><strong>Estatus de Operaciones</strong><br />' + (feature.properties['Estatus_Op'] !== null ? autolinker.link(String(feature.properties['Estatus_Op']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacidad" colspan="2"><strong>Capacidad de Matrícula</strong><br />' + (feature.properties['Capacidad'] !== null ? autolinker.link(String(feature.properties['Capacidad']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Capacidad de Egresados</strong><br />' + (feature.properties['Capacida_1'] !== null ? autolinker.link(String(feature.properties['Capacida_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CESectorElctrico_15_0() {
+            return {
+                pane: 'pane_CESectorElctrico_15',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(255,142,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,158,23,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CESectorElctrico_15');
+        map.getPane('pane_CESectorElctrico_15').style.zIndex = 415;
+        map.getPane('pane_CESectorElctrico_15').style['mix-blend-mode'] = 'normal';
+        var layer_CESectorElctrico_15 = new L.geoJson(json_CESectorElctrico_15, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CESectorElctrico_15',
+            layerName: 'layer_CESectorElctrico_15',
+            pane: 'pane_CESectorElctrico_15',
+            onEachFeature: pop_CESectorElctrico_15,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CESectorElctrico_15_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CESectorElctrico_15);
+        map.addLayer(layer_CESectorElctrico_15);
+        function pop_CEInstitucionalPolticas_16(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="ID_Centro" colspan="2"><strong>ID del Centro</strong><br />' + (feature.properties['ID_Centro'] !== null ? autolinker.link(String(feature.properties['ID_Centro']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nombre_Cen" colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre_Cen'] !== null ? autolinker.link(String(feature.properties['Nombre_Cen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Municipio" colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? autolinker.link(String(feature.properties['Municipio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Parroquia" colspan="2"><strong>Parroquia</strong><br />' + (feature.properties['Parroquia'] !== null ? autolinker.link(String(feature.properties['Parroquia']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Dirección" colspan="2"><strong>Dirección</strong><br />' + (feature.properties['Dirección'] !== null ? autolinker.link(String(feature.properties['Dirección']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Area_Tecni" colspan="2"><strong>Área Técnica</strong><br />' + (feature.properties['Area_Tecni'] !== null ? autolinker.link(String(feature.properties['Area_Tecni']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tipo_Insti" colspan="2"><strong>Tipo de Institución</strong><br />' + (feature.properties['Tipo_Insti'] !== null ? autolinker.link(String(feature.properties['Tipo_Insti']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Organismo_" colspan="2"><strong>Organismo</strong><br />' + (feature.properties['Organismo_'] !== null ? autolinker.link(String(feature.properties['Organismo_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Ente_Recto" colspan="2"><strong>Ente Rector</strong><br />' + (feature.properties['Ente_Recto'] !== null ? autolinker.link(String(feature.properties['Ente_Recto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tier_Propu" colspan="2"><strong>Tier Propuesto</strong><br />' + (feature.properties['Tier_Propu'] !== null ? autolinker.link(String(feature.properties['Tier_Propu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Perfil_Adi" colspan="2"><strong>Perfil de Adiestramiento</strong><br />' + (feature.properties['Perfil_Adi'] !== null ? autolinker.link(String(feature.properties['Perfil_Adi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Latitud_RE" colspan="2"><strong>Latitud_RE</strong><br />' + (feature.properties['Latitud_RE'] !== null ? autolinker.link(String(feature.properties['Latitud_RE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estatus_Op" colspan="2"><strong>Estatus de Operaciones</strong><br />' + (feature.properties['Estatus_Op'] !== null ? autolinker.link(String(feature.properties['Estatus_Op']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacidad" colspan="2"><strong>Capacidad de Matrícula</strong><br />' + (feature.properties['Capacidad'] !== null ? autolinker.link(String(feature.properties['Capacidad']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacida_1" colspan="2"><strong>Capacidad de Egresados</strong><br />' + (feature.properties['Capacida_1'] !== null ? autolinker.link(String(feature.properties['Capacida_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CEInstitucionalPolticas_16_0() {
+            return {
+                pane: 'pane_CEInstitucionalPolticas_16',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(128,17,25,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(219,30,42,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CEInstitucionalPolticas_16');
+        map.getPane('pane_CEInstitucionalPolticas_16').style.zIndex = 416;
+        map.getPane('pane_CEInstitucionalPolticas_16').style['mix-blend-mode'] = 'normal';
+        var layer_CEInstitucionalPolticas_16 = new L.geoJson(json_CEInstitucionalPolticas_16, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CEInstitucionalPolticas_16',
+            layerName: 'layer_CEInstitucionalPolticas_16',
+            pane: 'pane_CEInstitucionalPolticas_16',
+            onEachFeature: pop_CEInstitucionalPolticas_16,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CEInstitucionalPolticas_16_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CEInstitucionalPolticas_16);
+        map.addLayer(layer_CEInstitucionalPolticas_16);
+        function pop_CEEducacinyFormacin_17(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="ID_Centro" colspan="2"><strong>ID del Centro</strong><br />' + (feature.properties['ID_Centro'] !== null ? autolinker.link(String(feature.properties['ID_Centro']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nombre_Cen" colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre_Cen'] !== null ? autolinker.link(String(feature.properties['Nombre_Cen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Municipio" colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? autolinker.link(String(feature.properties['Municipio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Parroquia" colspan="2"><strong>Parroquia</strong><br />' + (feature.properties['Parroquia'] !== null ? autolinker.link(String(feature.properties['Parroquia']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Dirección" colspan="2"><strong>Dirección</strong><br />' + (feature.properties['Dirección'] !== null ? autolinker.link(String(feature.properties['Dirección']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Area_Tecni" colspan="2"><strong>Área Técnica</strong><br />' + (feature.properties['Area_Tecni'] !== null ? autolinker.link(String(feature.properties['Area_Tecni']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tipo_Insti" colspan="2"><strong>Tipo de Institución</strong><br />' + (feature.properties['Tipo_Insti'] !== null ? autolinker.link(String(feature.properties['Tipo_Insti']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Organismo_" colspan="2"><strong>Organismo</strong><br />' + (feature.properties['Organismo_'] !== null ? autolinker.link(String(feature.properties['Organismo_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Ente_Recto" colspan="2"><strong>Ente Rector</strong><br />' + (feature.properties['Ente_Recto'] !== null ? autolinker.link(String(feature.properties['Ente_Recto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tier_Propu" colspan="2"><strong>Tier Propuesto</strong><br />' + (feature.properties['Tier_Propu'] !== null ? autolinker.link(String(feature.properties['Tier_Propu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Perfil_Adi" colspan="2"><strong>Perfil de Adiestramiento</strong><br />' + (feature.properties['Perfil_Adi'] !== null ? autolinker.link(String(feature.properties['Perfil_Adi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estatus_Op" colspan="2"><strong>Estatus de Operaciones</strong><br />' + (feature.properties['Estatus_Op'] !== null ? autolinker.link(String(feature.properties['Estatus_Op']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacidad" colspan="2"><strong>Capacidad de Matrícula</strong><br />' + (feature.properties['Capacidad'] !== null ? autolinker.link(String(feature.properties['Capacidad']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacida_1" colspan="2"><strong>Capacidad de Egresados</strong><br />' + (feature.properties['Capacida_1'] !== null ? autolinker.link(String(feature.properties['Capacida_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CEEducacinyFormacin_17_0() {
+            return {
+                pane: 'pane_CEEducacinyFormacin_17',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(50,87,128,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(72,123,182,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CEEducacinyFormacin_17');
+        map.getPane('pane_CEEducacinyFormacin_17').style.zIndex = 417;
+        map.getPane('pane_CEEducacinyFormacin_17').style['mix-blend-mode'] = 'normal';
+        var layer_CEEducacinyFormacin_17 = new L.geoJson(json_CEEducacinyFormacin_17, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CEEducacinyFormacin_17',
+            layerName: 'layer_CEEducacinyFormacin_17',
+            pane: 'pane_CEEducacinyFormacin_17',
+            onEachFeature: pop_CEEducacinyFormacin_17,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CEEducacinyFormacin_17_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CEEducacinyFormacin_17);
+        map.addLayer(layer_CEEducacinyFormacin_17);
+        function pop_CentrosEducativosTiers3FormacinTcnicaEspecializada_18(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="ID_Centro" colspan="2"><strong>ID del Centro</strong><br />' + (feature.properties['ID_Centro'] !== null ? autolinker.link(String(feature.properties['ID_Centro']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -589,12 +1618,10 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_CentrosEducativosporEnteRector_7_0(feature) {
-            switch(String(feature.properties['Ente_Recto'])) {
-                case '[\'MPPRIJP\', \'MPPRIJP (Adscripción Orgánica) / MPPEU (Rectoría Académica)\', \'MPPRIJP / MPPEU\', \'FANB / Min. Defensa\', \'FANB / Min. Obras Públicas\', \'Fundación Misión Sucre\', \'Armada Bolivariana / INEA\', \'Bolipuertos / INEA / Min. Transporte\', \'BAER / Min. Transporte\', \'Bolipuertos / OCAMAR / INEA\', \'Ministerio del Poder Popular para la Defensa\', \'Ministerio del Poder Popular para Relaciones Interiores, Justicia y Paz (MPPRIJP) / MPPEU\', \'Ministerio del Poder Popular para Relaciones Interiores, Justicia y Paz (MPPRIJP)/ Gobernación\', \'MPPPDefensa / MPPEU\', \'Min.Poder Popular para Relaciones Interiores, Justicia y Paz\', \'Min.Poder Popular para Relaciones Interiores, Justicia y Paz / MPPEU\']':
-                    return {
-                pane: 'pane_CentrosEducativosporEnteRector_7',
-                radius: 4.0,
+        function style_CentrosEducativosTiers3FormacinTcnicaEspecializada_18_0() {
+            return {
+                pane: 'pane_CentrosEducativosTiers3FormacinTcnicaEspecializada_18',
+                radius: 10.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -603,192 +1630,212 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(43,131,186,1.0)',
+                fillColor: 'rgba(30,95,18,1.0)',
                 interactive: true,
-            }
-                    break;
-                case '[\'Privada / MPPEU\', \'Técnica Profesional\', \'Técnica Industrial\', \'Misión Sucre\', \'Misión Sucre / UBV\', \'Misión Sucre / MPPEU\', \'UBV / MPPEU\', \'UDO / MPPEU\', \'ULA / MPEU\', \'UNEFA / MPPEU\', \'UNEG / MPPEU\', \'UNELLEZ / MPPEU\', \'UNET / MPEU\', \'UPTBARINAS / MPPEU\', \'UPTJAA / MPPEU\', \'UPTM / MPEU\', \'UPTM / MPPEU\', \'UPTT / MPEU\', \'MPPEU / CNU\', \'MPPEU / OPSU\', \'MPPEU / Privada\', \'MPPEU / UDO\', \'MPPEU / UNEFA\', \'MPPEU / UPTOSCR\', \'MPPEU / UPTP\', \'MPPEU/ MPPRIJP\', \'MPPIJP / MPPEU\', \'MPPEducacion\', \'MPPE (Zona Educativa de Miranda)\', \'MPPE – Educación Media Técnica\', \'MPPE (Ministerio del Poder Popular para la Educación)\', \'MPPEU\', \'MPEU\', \'MPPD\', \'MPPD / MPPEU\', \'MPPE\', \'Ministerio del Poder Popular para la Educación Universitaria (MPPEU)\', \'Ministerio del Poder Popular para la Educación Universitaria\', \'Ministerio del Poder Popular para la Educación (MPPE)\', \'LUZ / MPPEU\', \'INCES\', \'INCES / MPPPST\', \'INCES / MPPT\']':
-                    return {
-                pane: 'pane_CentrosEducativosporEnteRector_7',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(94,167,177,1.0)',
-                interactive: true,
-            }
-                    break;
-                case '[\'Min. Obras Públicas\', \'Min. Obras Públicas / INEA\', \'Min. Obras Públicas / Gobernación\', \'Ministerio del Poder Popular para Obras Públicas (MPPOP)\', \'Ministerio del Poder Popular para Obras Públicas / VSOPS\', \'MPPOP\', \'MOPP\', \'MPPOP / Ente Regional\', \'MPPOP / FONTUR\', \'MPPOP / Gobernación\', \'MPPOP / INVIOZ\', \'MPPOPS\', \'MPPOP / Mixto\', \'Vicepresidencia Sectorial de Obras Públicas y Servicios (VPSOPS)\', \'VPSOPS\']':
-                    return {
-                pane: 'pane_CentrosEducativosporEnteRector_7',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(145,203,168,1.0)',
-                interactive: true,
-            }
-                    break;
-                case '[\'CORPOELEC\', \'CORPOELEC / MPPEE\', \'CORPOELEC / Territorio Insular\', \'Ministerio del Poder Popular para la Energía Eléctrica\', \'Ministerio del Poder Popular para la Energía Eléctrica (MPPEE)\', \'MPPEE\', \'MPPEE (Ministerio del Poder Popular para la Energía Eléctrica)\', \'MPPEE / CORPOELEC\']':
-                    return {
-                pane: 'pane_CentrosEducativosporEnteRector_7',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(188,228,169,1.0)',
-                interactive: true,
-            }
-                    break;
-                case '[\'INIA / MINPPAT\', \'INIA / MPPAT\', \'INAMEH / MINAGUAS\', \'Aguas de Mérida / MINAGUAS\', \'Aguas de Yaracuy\', \'HIDROANDES\', \'HIDROLAGO / MinAguas\', \'HIDROLAGO / MPPOP\', \'HIDROLAGO / Pequiven\', \'HIDROLLANOS\', \'HIDROLLANOS / MINAGUAS\', \'HidroPáez / MINAGUAS\', \'HidroSuroeste\', \'Min. Aguas\', \'Min. Aguas / Aguas de Monagas\', \'Min. Aguas / Gobernación\', \'Min. Aguas / Hidrocaribe\', \'Min. Aguas / HIDROCARIBE\', \'Min. Aguas / Territorio Insular\', \'MINAGUAS\', \'MINAGUAS / Hidroandes\', \'MINAGUAS (Ministerio del Poder Popular para la Atención de las Aguas)\', \'MinAguas / Hidroportuguesa\', \'Ministerio del Poder Popular de Atención de las Aguas\', \'Ministerio del Poder Popular de Atención de las Aguas (MINAGUAS)\', \'Ministerio del Poder Popular para la Atención de las Aguas (MINAGUAS)\', \'MPPAA (Ministerio del Poder Popular de Atención de las Aguas)\', \'MPPAA\', \'MinAguas\']':
-                    return {
-                pane: 'pane_CentrosEducativosporEnteRector_7',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(221,241,180,1.0)',
-                interactive: true,
-            }
-                    break;
-                case '[\'Ministerio del Poder Popular para el Proceso Social de Trabajo\', \'Ministerio del Poder Popular para el Proceso Social de Trabajo - MPPPST\', \'MPPPST (Ministerio del Poder Popular para el Proceso Social de Trabajo)\', \'MPPPST\', \'Ministerio del Poder Popular de Planificación\', \'Ministerio del Poder Popular de Comercio Nacional\', \'Territorio Insular Miranda\', \'Gob.n de Nueva Esparta\', \'Gobernación\', \'Gobernación / Min. Aguas\', \'Gobernación / MPPOP\', \'Gobernación de Amazonas\', \'Gobernación de Yaracuy\', \'Gobernación del Estado Barinas / MPPOP\', \'Gobernación del Estado Barinas / MPPOPS\', \'Gobernación del estado Falcón\', \'Gobernación del Estado Guárico\', \'Gobernación del estado Lara\', \'Gobernación del estado Yaracuy\', \'Gobernación del Zulia\', \'Gobierno de Aragua\']':
-                    return {
-                pane: 'pane_CentrosEducativosporEnteRector_7',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,191,1.0)',
-                interactive: true,
-            }
-                    break;
-                case '[\'CVC / MINPPIC\', \'CVG\', \'CVG / Ferrominera\', \'CVG / Sidor\', \'Ministerio del Poder Popular de Desarrollo Minero Ecológico\']':
-                    return {
-                pane: 'pane_CentrosEducativosporEnteRector_7',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(254,223,153,1.0)',
-                interactive: true,
-            }
-                    break;
-                case '[\'Ministerio del Poder Popular de Petróleo (MPPP) / PDVSA\', \'MPPPM (Ministerio del Poder Popular de Petróleo) / MINCYT (en el marco del Sistema Nacional de Ciencia, Tecnología e Innovación)\', \'PDVSA\', \'PDVSA / Gas Comunal\', \'PDVSA / MINPET\', \'PDVSA Gas Comunal\', \'PDVSA Gas Comunal / Gobernación (DIGASGUA)\', \'PDVSA Gas Comunal / Min. Petróleo\']':
-                    return {
-                pane: 'pane_CentrosEducativosporEnteRector_7',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(253,190,116,1.0)',
-                interactive: true,
-            }
-                    break;
-                case '[\'MinCyT\', \'MINCYT\', \'MINCYT (Ministerio del Poder Popular para Ciencia y Tecnología)\', \'MINCYT / CIEPE\', \'MINCYT / UPTT\', \'Ministerio del Poder Popular para Ciencia y Tecnología\', \'Ministerio del Poder Popular para Ciencia y Tecnología (MINCYT)\', \'MIPPTT (Ministerio del Poder Popular para Ciencia y Tecnología / Viceministerio de Telecomunicaciones)\', \'CANTV\', \'CANTV / CONATEL\', \'CANTV / MPPEPCT\', \'CANTV / MINCYT\', \'CANTV / MPPTT\', \'CONATEL / CANTV\']':
-                    return {
-                pane: 'pane_CentrosEducativosporEnteRector_7',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(245,144,83,1.0)',
-                interactive: true,
-            }
-                    break;
-                case '[\'INVIALCA\', \'SAPEM / MPPT\', \'MPTT\', \'MIPPTT\', \'Min. Transporte / Gobernación\', \'INAC\', \'Instituto Nacional de los Espacios Acuáticos (INEA)\', \'Instituto Nacional de Aeronáutica Civil (INAC),\', \'INTT / Min. Transporte\', \'IVT / MPPT\', \'Ministerio del Poder Popular para el Transporte\', \'MPPT\', \'MPPT (Ministerio del Poder Popular para el Transporte)\', \'MPPT / Gobernación del Estado Falcón\', \'MPPT / INAC\', \'MPPT / INTT\', \'MPPT / MPPOP\', \'MPPT / SAIME\']':
-                    return {
-                pane: 'pane_CentrosEducativosporEnteRector_7',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(230,85,56,1.0)',
-                interactive: true,
-            }
-                    break;
-                case '[\'GMBNBT / MPPVH\', \'Min. Hábitat y Vivienda\', \'MINHVI (Ministerio del Poder Popular para Hábitat y Vivienda)\', \'Ministerio del Poder Popular para Hábitat y Vivienda (MINHVI) / MPPOP\', \'Ministerio del Poder Popular para Vivienda y Hábitat\', \'Ministerio para Hábitat y Vivienda\', \'Minvhi\', \'MPPVH / BANAVIH\']':
-                    return {
-                pane: 'pane_CentrosEducativosporEnteRector_7',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(215,25,28,1.0)',
-                interactive: true,
-            }
-                    break;
             }
         }
-        map.createPane('pane_CentrosEducativosporEnteRector_7');
-        map.getPane('pane_CentrosEducativosporEnteRector_7').style.zIndex = 407;
-        map.getPane('pane_CentrosEducativosporEnteRector_7').style['mix-blend-mode'] = 'normal';
-        var layer_CentrosEducativosporEnteRector_7 = new L.geoJson(json_CentrosEducativosporEnteRector_7, {
+        map.createPane('pane_CentrosEducativosTiers3FormacinTcnicaEspecializada_18');
+        map.getPane('pane_CentrosEducativosTiers3FormacinTcnicaEspecializada_18').style.zIndex = 418;
+        map.getPane('pane_CentrosEducativosTiers3FormacinTcnicaEspecializada_18').style['mix-blend-mode'] = 'normal';
+        var layer_CentrosEducativosTiers3FormacinTcnicaEspecializada_18 = new L.geoJson(json_CentrosEducativosTiers3FormacinTcnicaEspecializada_18, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_CentrosEducativosporEnteRector_7',
-            layerName: 'layer_CentrosEducativosporEnteRector_7',
-            pane: 'pane_CentrosEducativosporEnteRector_7',
-            onEachFeature: pop_CentrosEducativosporEnteRector_7,
+            dataVar: 'json_CentrosEducativosTiers3FormacinTcnicaEspecializada_18',
+            layerName: 'layer_CentrosEducativosTiers3FormacinTcnicaEspecializada_18',
+            pane: 'pane_CentrosEducativosTiers3FormacinTcnicaEspecializada_18',
+            onEachFeature: pop_CentrosEducativosTiers3FormacinTcnicaEspecializada_18,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_CentrosEducativosporEnteRector_7_0(feature));
+                return L.circleMarker(latlng, style_CentrosEducativosTiers3FormacinTcnicaEspecializada_18_0(feature));
             },
         });
-        bounds_group.addLayer(layer_CentrosEducativosporEnteRector_7);
-        map.addLayer(layer_CentrosEducativosporEnteRector_7);
+        bounds_group.addLayer(layer_CentrosEducativosTiers3FormacinTcnicaEspecializada_18);
+        map.addLayer(layer_CentrosEducativosTiers3FormacinTcnicaEspecializada_18);
+        function pop_CentrosEducativosTiers2FormacinMediayOcupacional_19(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="ID_Centro" colspan="2"><strong>ID del Centro</strong><br />' + (feature.properties['ID_Centro'] !== null ? autolinker.link(String(feature.properties['ID_Centro']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nombre_Cen" colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre_Cen'] !== null ? autolinker.link(String(feature.properties['Nombre_Cen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Municipio" colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? autolinker.link(String(feature.properties['Municipio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Parroquia" colspan="2"><strong>Parroquia</strong><br />' + (feature.properties['Parroquia'] !== null ? autolinker.link(String(feature.properties['Parroquia']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Dirección" colspan="2"><strong>Dirección</strong><br />' + (feature.properties['Dirección'] !== null ? autolinker.link(String(feature.properties['Dirección']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Area_Tecni" colspan="2"><strong>Área Técnica</strong><br />' + (feature.properties['Area_Tecni'] !== null ? autolinker.link(String(feature.properties['Area_Tecni']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tipo_Insti" colspan="2"><strong>Tipo de Institución</strong><br />' + (feature.properties['Tipo_Insti'] !== null ? autolinker.link(String(feature.properties['Tipo_Insti']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Organismo_" colspan="2"><strong>Organismo</strong><br />' + (feature.properties['Organismo_'] !== null ? autolinker.link(String(feature.properties['Organismo_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Ente_Recto" colspan="2"><strong>Ente Rector</strong><br />' + (feature.properties['Ente_Recto'] !== null ? autolinker.link(String(feature.properties['Ente_Recto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tier_Propu" colspan="2"><strong>Tier Propuesto</strong><br />' + (feature.properties['Tier_Propu'] !== null ? autolinker.link(String(feature.properties['Tier_Propu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Perfil_Adi" colspan="2"><strong>Perfil de Adiestramiento</strong><br />' + (feature.properties['Perfil_Adi'] !== null ? autolinker.link(String(feature.properties['Perfil_Adi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estatus_Op" colspan="2"><strong>Estatus Operativo</strong><br />' + (feature.properties['Estatus_Op'] !== null ? autolinker.link(String(feature.properties['Estatus_Op']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacidad" colspan="2"><strong>Capacidad de Matrícula</strong><br />' + (feature.properties['Capacidad'] !== null ? autolinker.link(String(feature.properties['Capacidad']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacida_1" colspan="2"><strong>Capacidad de Egresados</strong><br />' + (feature.properties['Capacida_1'] !== null ? autolinker.link(String(feature.properties['Capacida_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CentrosEducativosTiers2FormacinMediayOcupacional_19_0() {
+            return {
+                pane: 'pane_CentrosEducativosTiers2FormacinMediayOcupacional_19',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(122,185,116,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CentrosEducativosTiers2FormacinMediayOcupacional_19');
+        map.getPane('pane_CentrosEducativosTiers2FormacinMediayOcupacional_19').style.zIndex = 419;
+        map.getPane('pane_CentrosEducativosTiers2FormacinMediayOcupacional_19').style['mix-blend-mode'] = 'normal';
+        var layer_CentrosEducativosTiers2FormacinMediayOcupacional_19 = new L.geoJson(json_CentrosEducativosTiers2FormacinMediayOcupacional_19, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CentrosEducativosTiers2FormacinMediayOcupacional_19',
+            layerName: 'layer_CentrosEducativosTiers2FormacinMediayOcupacional_19',
+            pane: 'pane_CentrosEducativosTiers2FormacinMediayOcupacional_19',
+            onEachFeature: pop_CentrosEducativosTiers2FormacinMediayOcupacional_19,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CentrosEducativosTiers2FormacinMediayOcupacional_19_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CentrosEducativosTiers2FormacinMediayOcupacional_19);
+        map.addLayer(layer_CentrosEducativosTiers2FormacinMediayOcupacional_19);
+        function pop_CentrosEducativosTiers1FormacinBsica_20(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="ID_Centro" colspan="2"><strong>ID del Centro</strong><br />' + (feature.properties['ID_Centro'] !== null ? autolinker.link(String(feature.properties['ID_Centro']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Nombre_Cen" colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre_Cen'] !== null ? autolinker.link(String(feature.properties['Nombre_Cen']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Municipio" colspan="2"><strong>Municipio</strong><br />' + (feature.properties['Municipio'] !== null ? autolinker.link(String(feature.properties['Municipio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Parroquia" colspan="2"><strong>Parroquia</strong><br />' + (feature.properties['Parroquia'] !== null ? autolinker.link(String(feature.properties['Parroquia']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Dirección" colspan="2"><strong>Dirección</strong><br />' + (feature.properties['Dirección'] !== null ? autolinker.link(String(feature.properties['Dirección']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Area_Tecni" colspan="2"><strong>Área Técnica</strong><br />' + (feature.properties['Area_Tecni'] !== null ? autolinker.link(String(feature.properties['Area_Tecni']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tipo_Insti" colspan="2"><strong>Tipo de Institución</strong><br />' + (feature.properties['Tipo_Insti'] !== null ? autolinker.link(String(feature.properties['Tipo_Insti']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Organismo_" colspan="2"><strong>Organismo</strong><br />' + (feature.properties['Organismo_'] !== null ? autolinker.link(String(feature.properties['Organismo_']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Ente_Recto" colspan="2"><strong>Ente Rector</strong><br />' + (feature.properties['Ente_Recto'] !== null ? autolinker.link(String(feature.properties['Ente_Recto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Tier_Propu" colspan="2"><strong>Tier Propuesto</strong><br />' + (feature.properties['Tier_Propu'] !== null ? autolinker.link(String(feature.properties['Tier_Propu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Perfil_Adi" colspan="2"><strong>Perfil de Adiestramiento</strong><br />' + (feature.properties['Perfil_Adi'] !== null ? autolinker.link(String(feature.properties['Perfil_Adi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Estatus_Op" colspan="2"><strong>Estatus Operativo</strong><br />' + (feature.properties['Estatus_Op'] !== null ? autolinker.link(String(feature.properties['Estatus_Op']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacidad" colspan="2"><strong>Capacidad de Matrícula</strong><br />' + (feature.properties['Capacidad'] !== null ? autolinker.link(String(feature.properties['Capacidad']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Capacida_1" colspan="2"><strong>Capacidad de Egresados</strong><br />' + (feature.properties['Capacida_1'] !== null ? autolinker.link(String(feature.properties['Capacida_1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CentrosEducativosTiers1FormacinBsica_20_0() {
+            return {
+                pane: 'pane_CentrosEducativosTiers1FormacinBsica_20',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(198,230,194,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CentrosEducativosTiers1FormacinBsica_20');
+        map.getPane('pane_CentrosEducativosTiers1FormacinBsica_20').style.zIndex = 420;
+        map.getPane('pane_CentrosEducativosTiers1FormacinBsica_20').style['mix-blend-mode'] = 'normal';
+        var layer_CentrosEducativosTiers1FormacinBsica_20 = new L.geoJson(json_CentrosEducativosTiers1FormacinBsica_20, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CentrosEducativosTiers1FormacinBsica_20',
+            layerName: 'layer_CentrosEducativosTiers1FormacinBsica_20',
+            pane: 'pane_CentrosEducativosTiers1FormacinBsica_20',
+            onEachFeature: pop_CentrosEducativosTiers1FormacinBsica_20,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CentrosEducativosTiers1FormacinBsica_20_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CentrosEducativosTiers1FormacinBsica_20);
+        map.addLayer(layer_CentrosEducativosTiers1FormacinBsica_20);
         map.on("zoomend", function(e) {
             if (map.getZoom() <= 19 && map.getZoom() >= 8) {
                 map.addLayer(layer_GoogleHybrid_0);
@@ -802,7 +1849,20 @@
                 map.removeLayer(layer_GoogleHybrid_0);
             }
         var overlaysTree = [
-            {label: 'Centros Educativos por Ente Rector<br /><table><tr><td style="text-align: center;"><img src="legend/CentrosEducativosporEnteRector_7_DefensaySeguridad0.png" /></td><td>Defensa y Seguridad</td></tr><tr><td style="text-align: center;"><img src="legend/CentrosEducativosporEnteRector_7_EducaciónBásicaySuperior1.png" /></td><td>Educación Básica y Superior</td></tr><tr><td style="text-align: center;"><img src="legend/CentrosEducativosporEnteRector_7_ObrasPúblicas2.png" /></td><td>Obras Públicas</td></tr><tr><td style="text-align: center;"><img src="legend/CentrosEducativosporEnteRector_7_SectorEléctrico3.png" /></td><td>Sector Eléctrico</td></tr><tr><td style="text-align: center;"><img src="legend/CentrosEducativosporEnteRector_7_SectorHídrico4.png" /></td><td>Sector Hídrico</td></tr><tr><td style="text-align: center;"><img src="legend/CentrosEducativosporEnteRector_7_SectorInstitucional5.png" /></td><td>Sector Institucional</td></tr><tr><td style="text-align: center;"><img src="legend/CentrosEducativosporEnteRector_7_SectorMinero6.png" /></td><td>Sector Minero</td></tr><tr><td style="text-align: center;"><img src="legend/CentrosEducativosporEnteRector_7_SectorPetrolero7.png" /></td><td>Sector Petrolero</td></tr><tr><td style="text-align: center;"><img src="legend/CentrosEducativosporEnteRector_7_Telecomunicaciones8.png" /></td><td>Telecomunicaciones</td></tr><tr><td style="text-align: center;"><img src="legend/CentrosEducativosporEnteRector_7_Transporte9.png" /></td><td>Transporte</td></tr><tr><td style="text-align: center;"><img src="legend/CentrosEducativosporEnteRector_7_ViviendayHábitat10.png" /></td><td>Vivienda y Hábitat</td></tr></table>', layer: layer_CentrosEducativosporEnteRector_7},
+            {label: '<img src="legend/CentrosEducativosTiers1FormacinBsica_20.png" /> Centros Educativos Tiers 1- Formación Básica', layer: layer_CentrosEducativosTiers1FormacinBsica_20},
+            {label: '<img src="legend/CentrosEducativosTiers2FormacinMediayOcupacional_19.png" /> Centros Educativos Tiers 2 - Formación Media y Ocupacional', layer: layer_CentrosEducativosTiers2FormacinMediayOcupacional_19},
+            {label: '<img src="legend/CentrosEducativosTiers3FormacinTcnicaEspecializada_18.png" /> Centros Educativos Tiers 3 - Formación Técnica Especializada', layer: layer_CentrosEducativosTiers3FormacinTcnicaEspecializada_18},
+            {label: '<img src="legend/CEEducacinyFormacin_17.png" /> CE Educación y Formación', layer: layer_CEEducacinyFormacin_17},
+            {label: '<img src="legend/CEInstitucionalPolticas_16.png" /> CE Institucional Políticas', layer: layer_CEInstitucionalPolticas_16},
+            {label: '<img src="legend/CESectorElctrico_15.png" /> CE Sector Eléctrico', layer: layer_CESectorElctrico_15},
+            {label: '<img src="legend/CEObrasPblicas_14.png" /> CE Obras Públicas', layer: layer_CEObrasPblicas_14},
+            {label: '<img src="legend/CESectorHdrico_13.png" /> CE Sector Hídrico', layer: layer_CESectorHdrico_13},
+            {label: '<img src="legend/CESectorMinero_12.png" /> CE Sector Minero', layer: layer_CESectorMinero_12},
+            {label: '<img src="legend/CESectorPetrolero_11.png" /> CE Sector Petrolero', layer: layer_CESectorPetrolero_11},
+            {label: '<img src="legend/CESeguridadyDefensa_10.png" /> CE Seguridad y Defensa', layer: layer_CESeguridadyDefensa_10},
+            {label: '<img src="legend/CETelecomunicaciones_9.png" /> CE Telecomunicaciones', layer: layer_CETelecomunicaciones_9},
+            {label: '<img src="legend/CETransporte_8.png" /> CE Transporte', layer: layer_CETransporte_8},
+            {label: '<img src="legend/CEVivienda_7.png" /> CE Vivienda', layer: layer_CEVivienda_7},
             {label: '<img src="legend/CapitalesdeEstado_6.png" /> Capitales de Estado', layer: layer_CapitalesdeEstado_6},
             {label: '<img src="legend/Vialidad_5.png" /> Vialidad', layer: layer_Vialidad_5},
             {label: '<img src="legend/DivisinMunicipal_4.png" /> División Municipal', layer: layer_DivisinMunicipal_4},
@@ -817,9 +1877,59 @@
             //openedSymbol: '&#8863; &#x1f5c1;',
             //collapseAll: 'Collapse all',
             //expandAll: 'Expand all',
-            collapsed: true,
+            collapsed: false, 
         });
         lay.addTo(map);
+		document.addEventListener("DOMContentLoaded", function() {
+            // set new Layers List height which considers toggle icon
+            function newLayersListHeight() {
+                var layerScrollbarElement = document.querySelector('.leaflet-control-layers-scrollbar');
+                if (layerScrollbarElement) {
+                    var layersListElement = document.querySelector('.leaflet-control-layers-list');
+                    var originalHeight = layersListElement.style.height 
+                        || window.getComputedStyle(layersListElement).height;
+                    var newHeight = parseFloat(originalHeight) - 50;
+                    layersListElement.style.height = newHeight + 'px';
+                }
+            }
+            var isLayersListExpanded = true;
+            var controlLayersElement = document.querySelector('.leaflet-control-layers');
+            var toggleLayerControl = document.querySelector('.leaflet-control-layers-toggle');
+            // toggle Collapsed/Expanded and apply new Layers List height
+            toggleLayerControl.addEventListener('click', function() {
+                if (isLayersListExpanded) {
+                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
+                } else {
+                    controlLayersElement.classList.add('leaflet-control-layers-expanded');
+                }
+                isLayersListExpanded = !isLayersListExpanded;
+                newLayersListHeight()
+            });	
+			// apply new Layers List height if toggle layerstree
+			if (controlLayersElement) {
+				controlLayersElement.addEventListener('click', function(event) {
+					var toggleLayerHeaderPointer = event.target.closest('.leaflet-layerstree-header-pointer span');
+					if (toggleLayerHeaderPointer) {
+						newLayersListHeight();
+					}
+				});
+			}
+            // Collapsed/Expanded at Start to apply new height
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+            // Collapsed touch/small screen
+            var isSmallScreen = window.innerWidth < 650;
+            if (isSmallScreen) {
+                setTimeout(function() {
+                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
+                    isLayersListExpanded = !isLayersListExpanded;
+                }, 500);
+            }  
+        });       
         map.on("zoomend", function(){
 
                 if (map.hasLayer(layer_DivisinMunicipal_4)) {
